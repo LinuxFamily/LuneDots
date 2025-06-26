@@ -1,9 +1,14 @@
-{ ... }:
+{ inputs, ... }:
 {
+  imports = [
+    ./modules
+    inputs.nixvim.homeManagerModules.nixvim
+  ];
   programs.nixvim = {
     enable = true;
-
-    colorschemes.catppuccin.enable = true;
-    plugins.lualine.enable = true;
+    defaultEditor = true;
+    
+    viAlias = true;
+    vimAlias = true;
   };
 }
